@@ -1,0 +1,124 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: white;
+  border-bottom: 2px solid #db2927;
+  position: relative;
+  height: 90px;
+}
+
+.vinsolimage {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
+.vinsolinfo {
+  position: absolute;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 13px;
+  bottom: 5px;
+  right: 10px;
+}
+
+.row {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+}
+
+.row_header {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 18px;
+  color: #2c286d;
+}
+
+.row_body {
+  width: 580px;
+  background-color: #ececec;
+  border: 2px solid;
+  border-color: #bcbcbc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+
+}
+
+.formBody {
+    display: flex;
+}
+
+.formLabels {
+  float: left;
+  width: 25%;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding-top: 5px;
+}
+
+.formInputs {
+  float: left;
+  width: 75%;
+  padding-top: 5px;
+}
+
+table tr td.labelNames {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: black;
+}
+
+table tr td.inputNames {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.inputsForm {
+  background-color: white;
+  border: 1px solid;
+  border-color: #b9b9b9;
+  width: 360px;
+  height: 25px;
+}
+
+.inputsRadio {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 13px;
+  color: #6f6f6f;
+}
+
+.inputsSelect {
+  width: 110px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 13px;
+  color: #6f6f6f;
+  padding-right: 5px;
+}
+
+.inputsTextarea {
+  background-color: white;
+  border: 1px solid;
+  border-color: #b9b9b9;
+  width: 360px;
+  height: 135px;
+}
+
+.inputsSubmit {
+  background-color: #dc2927;
+  border: 1px solid;
+  border-color: #a10200;
+  width: 130px;
+  height: 32px;
+  text-align: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: white;
+}

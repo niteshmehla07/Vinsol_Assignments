@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Exercise</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="CSS/cssFile.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="vinsolimage">
+      <img src="Images/vinsol.png" alt="vinsol image">
+    </div>
+    <div class="vinsolinfo">
+      <p>
+        <span style="color:black;">Email us at :</span><span style="color:#045198;"> sales@vinsol.com</span>
+        <span style="color:black;margin-left:10px;">Skype :</span><span style="color:#045198;"> Vinsol</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="row_header">
+      Please fill the form below
+    </div>
+
+    <div class="row_body">
+      <form action="" method="post">
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="firstName">First Name</label>
+          </div>
+          <div class="formInputs">
+            <input type="text" name="firstName" class="inputsForm">
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="lastName">Last Name</label>
+          </div>
+          <div class="formInputs">
+            <input type="text" name="lastName" class="inputsForm">
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="useremail">Email</label>
+          </div>
+          <div class="formInputs">
+            <input type="email" name="useremail" class="inputsForm">
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="userpassword">Password</label>
+          </div>
+          <div class="formInputs">
+            <input type="password" name="userpassword" class="inputsForm">
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="gender">Gender</label>
+          </div>
+          <div class="formInputs">
+            <input type="radio" name="gender" value="Male" checked><span class="inputsRadio">Male</span>
+            <input type="radio" name="gender" value="Female"><span class="inputsRadio">Female</span>
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="">Date of Birth</label>
+          </div>
+          <div class="formInputs">
+            <select name="dateBirth" placeholder="DD" class="inputsSelect">
+              <option value="1">01</option>
+        			<option value="2">02</option>
+        			<option value="3">03</option>
+            </select>
+            <select name="monthBirth" placeholder="MM" class="inputsSelect">
+              <option value="jan">January</option>
+        			<option value="feb">February</option>
+        			<option value="mar">March</option>
+            </select>
+            <select name="yearBirth" placeholder="YY" class="inputsSelect">
+              <option value="1995">1995</option>
+        			<option value="1996">1996</option>
+        			<option value="1997">1997</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+            <label for="address">Address</label>
+          </div>
+          <div class="formInputs">
+            <textarea rows="4" cols="7" name="address" class="inputsTextarea"></textarea>
+          </div>
+        </div>
+
+        <div class="formBody">
+          <div class="formLabels">
+          </div>
+          <div class="formInputs">
+            <input type="submit" value="Submit Details" class="inputsSubmit">
+          </div>
+        </div>
+
+      </form>
+    </div>
+    
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+    background-color: #b2e7ff;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 24px;
+    border-bottom: 2px solid #0ab1ff;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  float: left;
+}
+
+.column.column1 {
+  width: 25%;
+  background-color: #0ab1ff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.column1 .column1_para {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 18px;
+  color: black;
+}
+
+.column1 .column1_info {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 12px;
+  color: black;
+}
+
+.column.column2 {
+  width: 75%;;
+  background-color: #ededed;
+  padding: 20px;
+}
+
+.column2 .column2_para {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 24px;
+  color: black;
+}
+
+.column2 .column2_info {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: #802525;
+}
+
+ul {
+  list-style-type: circle;
+  padding-left: 15px;
+}
+li a{
+
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #3cff78;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  border-bottom: 2px solid #0ab1ff;
+  padding: 10px;
+}

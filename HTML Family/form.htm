@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>HTML Form exercise</title>
+</head>
+<body>
+
+<form action="" method="post">
+	<fieldset>
+		<legend>Contact form</legend>
+			<section>
+				<table>
+					<tr>
+						<td><label for="yourname">Your name*:</label></td>
+						<td><input type="text" name="yourname" required></td>
+					</tr>
+					<tr>
+						<td><label for="useremail">E-mail*:</label></td>
+						<td><input type="email" name="useremail" required></td>
+					</tr>
+					<tr>
+						<td><label for="phonenumber">Phone number:</label></td>
+						<td><input type="tel" name="phonenumber"></td>
+					</tr>
+					<tr>
+						<td><label for="website">Website*:</label></td>
+						<td><input type="url" name="website" placeholder="http://" required></td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<div style="margin-top:10px;margin-bottom:15px;">
+					<label for="comments">Comments*:</label>
+					<br>
+					<textarea name="comments" rows="6" cols="30" required></textarea>
+				</div>
+
+				<p><strong>Text field</strong></p>
+				<label for="name">Your name:</label>
+				<input type="text" name="name">
+
+				<p><strong>Password field</strong></p>
+				<label for="pass">Password:</label>
+				<input type="password" name="pass">
+
+				<p><strong>Radio buttons</strong></p>
+					Do you like pizza?<br>
+				<input type="radio" name="pizza" value="Yes" checked>Yes<br>
+				<input type="radio" name="pizza" value="No">No<br>
+				<input type="radio" name="pizza" value="Maybe">Maybe<br>
+				<input type="radio" name="pizza" value="Never">Never tried
+
+				<p><strong>Check Box</strong></p>
+				<input type="checkbox" name="checkservice" value="like">Click this box if you like our service<br>
+
+				<p><strong>Text area</strong></p>
+					Anything you would like to say?<br>
+				<textarea name="comments" rows="6" cols="30"></textarea>
+
+				<p><strong>I Like</strong></p>
+				<select name="veges" size="5" multiple>
+					<option value="mushrooms">mushrooms</option>
+					<option value="greenpeppers">green peppers</option>
+					<option value="onions">onions</option>
+					<option value="tomatoes">tomatoes</option>
+					<option value="olives">olives</option>
+				</select>
+
+				<p><strong>Menu</strong></p>
+					Your favorite color:<br>
+				<select name="color">
+					<option value="red">red</option>
+					<option value="green">green</option>
+					<option value="blue">blue</option>
+				</select>
+
+				<p><strong>Attach File</strong></p>
+				<input type="file" name="attachment" value="Browse">
+			</section>
+
+			<section>
+				<p><strong>Buttons</strong></p>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset">
+			</section>
+
+	</fieldset>
+</form>
+
+</body>
+</html>
