@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+}
+
+.selectleft {
+  float: left;
+}
+
+.selectleft > select {
+  width: 200px;
+}
+
+.buttonStyle {
+  float: left;
+  width: 100px;
+  padding: 30px;
+}
+
+.buttonStyle > input[type=button] {
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+}
+
+.selectright {
+  float: left;
+}
+
+.selectright > select {
+  width: 200px;
+}

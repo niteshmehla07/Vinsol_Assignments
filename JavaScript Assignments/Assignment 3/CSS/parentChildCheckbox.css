@@ -1,0 +1,43 @@
+.colorCheckbox {
+  padding: 10px;
+}
+
+.colorCheckboxChild {
+  padding: 5px;
+  margin-left: 10px;
+  display: none;
+}
+
+.movieCheckbox {
+  padding: 10px;
+}
+
+.movieCheckboxChild {
+  padding: 5px;
+  margin-left: 10px;
+  display: none;
+}
+
+.drinkCheckbox {
+  padding: 10px;
+}
+
+.drinkCheckboxChild {
+  padding: 5px;
+  margin-left: 10px;
+  display: none;
+}
+
+.bikesCheckbox {
+  padding: 10px;
+}
+
+.bikesCheckboxChild {
+  padding: 5px;
+  margin-left: 10px;
+  display: none;
+}
+
+.row {
+
+}

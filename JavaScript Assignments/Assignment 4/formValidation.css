@@ -1,0 +1,80 @@
+.row {
+  max-width: 400px;
+  padding: 10px;
+  margin: auto;
+}
+
+.registrationForm {
+  text-align: center;
+  background-color: #9ACD32;
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.registrationContent {
+  background-color: #90EE90;
+  border: 2px solid;
+  border-color: #bcbcbc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.formBody {
+  display: flex;
+}
+
+.fromLabels {
+  float: left;
+  width: 25%;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding-top: 10px;
+}
+
+.formInputs {
+  float: left;
+  width: 75%;
+  padding-top: 10px;
+}
+
+.checkboxText {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  color: black;
+  margin-top: 5px;
+}
+
+.checlboxTextSmall {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 11px;
+  color: black;
+  margin-top: 5px;
+}
+
+.passwordText {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 12px;
+  color: black;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.submitButton {
+  width: 40px;
+  height: 20px;
+  color: white;
+  background-color: #9ACD32;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}

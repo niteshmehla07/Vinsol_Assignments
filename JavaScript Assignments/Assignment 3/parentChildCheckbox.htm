@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>CheckBox exercise</title>
+  <link rel="stylesheet" href="CSS/parentChildCheckbox.css">
+</head>
+
+<body>
+<fieldset>
+  <legend>Parent Child CheckBox</legend>
+  <div class="row">
+    <div class="colorCheckbox">
+
+      <input type="checkbox" name="parent-1" value="Color" id="parent-1">Color<br>
+      <div class="colorCheckboxChild" id="colorChild">
+        <input type="checkbox" name="child-1[]" value="blue">Blue<br>
+        <input type="checkbox" name="child-1[]" value="green">Green<br>
+        <input type="checkbox" name="child-1[]" value="red">Red<br>
+        <input type="checkbox" name="child-1[]" value="yellow">Yellow<br>
+      </div>
+
+    </div>
+    <div class="movieCheckbox">
+
+      <input type="checkbox" name="parent-2" value="Movie" id="parent-2">Movie<br>
+      <div class="movieCheckboxChild" id="movieChild">
+        <input type="checkbox" name="child-2[]" value="dar">Dar<br>
+        <input type="checkbox" name="child-2[]" value="sir">Sir<br>
+      </div>
+
+    </div>
+    <div class="drinkCheckbox">
+
+      <input type="checkbox" name="parent-3" value="Drinks" id="parent-3">Drinks<br>
+      <div class="drinkCheckboxChild" id="drinkChild">
+        <input type="checkbox" name="child-3[]" value="coke">Coke<br>
+        <input type="checkbox" name="child-3[]" value="Pepsi">Pepsi<br>
+        <input type="checkbox" name="child-3[]" value="Dew">Dew<br>
+      </div>
+
+    </div>
+    <div class="bikesCheckbox">
+
+      <input type="checkbox" name="parent-4" value="Bikes" id="parent-4">Bikes<br>
+      <div class="bikesCheckboxChild" id="bikesChild">
+        <input type="checkbox" name="child-4[]" value="vrod">V-rod<br>
+        <input type="checkbox" name="child-4[]" value="pulsar">Pulsar<br>
+        <input type="checkbox" name="child-4[]" value="cbz">cbz<br>
+      </div>
+
+    </div>
+
+  </div>
+</fieldset>
+<script type="text/javascript" src="parentChildCheckbox.js"></script>
+</body>
+</html>

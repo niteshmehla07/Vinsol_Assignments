@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Form Validation exercise</title>
+  <link rel="stylesheet" href="formValidation.css">
+</head>
+<body>
+  <div class="row">
+    <div class="registrationForm">
+      <b>Registration Form</b>
+    </div>
+
+    <div class="registrationContent">
+
+    <form name="myform" method="post" action="" onsubmit="return checkFormValidity()">
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="Login Id">Login Id</label>
+        </div>
+        <div class="formInputs">
+          <input type="text" name="Login Id" id="Login Id">
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="email Id">Email</label>
+        </div>
+        <div class="formInputs">
+          <input type="email" name="email Id" id="email Id">
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="Name">Name</label>
+        </div>
+        <div class="formInputs">
+          <input type="text" name="Name" id="Name">
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="time">Timezone</label>
+        </div>
+        <div class="formInputs">
+          <select style="width:62%;">
+            <option selected>GMT</option>
+            <option>PST</option>
+            <option>UTC</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="Home page">Home Page</label>
+        </div>
+        <div class="formInputs">
+          <input type="url" name="Home page" id="Home page">
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <label for="aboutme">About me</label>
+        </div>
+      </div>
+
+      <div class="formBody">
+        <div class="fromLabels">
+          <textarea name="aboutme" id="aboutme" rows="10" cols="10" style="width:350px;"></textarea>
+        </div>
+      </div>
+
+      <div class="formBody">
+          <input type="checkbox" id="notification" name="notification">
+          <span class="checkboxText">Receive notification of comments.</span><br>
+      </div>
+
+      <div class="formBody">
+        <span class="checlboxTextSmall">You will be sent an email when someone posts comments to your Blog or Album.</span>
+      </div>
+
+      <div class="formBody">
+        <span class="passwordText">Your password will be mailed to you.</span>
+      </div>
+
+      <div class="formBody">
+        <input type="submit" value="GO" class="submitButton">
+      </div>
+    </form>
+
+    </div>
+  </div>
+<script type="text/javascript" src="formValidation.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>CheckBox exercise</title>
+  <link rel="stylesheet" href="CSS/checkBoxActivity.css">
+  <script type="text/javascript" src="checkBoxActivity.js"></script>
+</head>
+<body>
+  <fieldset>
+    <legend>CheckBox Activity</legend>
+    <div class="checkBoxDivStyling">
+      <form name="checkBoxActivity" id="checkBoxActivity">
+        <input type="checkbox" name="weekdays" value="Sunday" class="checkBoxStyling" id="sunday" >Sunday</input><br>
+        <input type="checkbox" name="weekdays" value="Monday" class="checkBoxStyling" id="monday" >Monday</input><br>
+        <input type="checkbox" name="weekdays" value="Tuesday" class="checkBoxStyling" id="tuesday" >Tuesday</input><br>
+        <input type="checkbox" name="weekdays" value="Wednesday" class="checkBoxStyling" id="wednesday" >Wednesday</input><br>
+        <input type="checkbox" name="weekdays" value="Thursday" class="checkBoxStyling" id="thursday" >Thursday</input><br>
+        <input type="checkbox" name="weekdays" value="Friday" class="checkBoxStyling" id="friday" >Friday</input><br>
+        <input type="checkbox" name="weekdays" value="Saturday" class="checkBoxStyling" id="saturday" >Saturday</input><br><br>
+
+        <input type="checkbox" name="weekdaynone" value="none" class="checkBoxStyling" id="none" onclick="checkNone()">None</input><br>
+      </form>
+    </div>
+  </fieldset>
+
+  <script type="text/javascript">
+    check(document.forms.checkBoxActivity.weekdays);
+  </script>
+</body>
+</html>

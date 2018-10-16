@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    'use strict';
+
+    class User {
+
+      constructor(name,age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      compare(user) {
+        var user1Age = this.age;
+        var user2Age = user.age;
+        if(user1Age > user2Age)
+        {
+          return "John is older than mary";
+        }
+        else if(user1Age < user2Age)
+        {
+          return "Mary is older than john";
+        }
+        else {
+          return "Both are equal";
+        }
+      }
+    }
+
+    let user1 = new User("John",28);
+    let user2 = new User("Mary",30);
+
+    var str = user1.compare(user2);
+    console.log(str);
+
+  </script>
+</body>
+
+</html>
