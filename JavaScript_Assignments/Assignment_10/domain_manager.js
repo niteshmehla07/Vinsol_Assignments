@@ -1,50 +1,50 @@
-//Global RegExp
-var constantRegex = {
-  regexUrl : /:\/\/(www[0-9]?\.)?(([\w.]+)\.)?([a-z.]+\.[a-z.]{2,4})/i
-}
+//Constant RegExp
+const RegexUrl = /(http[s]?\:\/\/)?(www[0-9]?\.)?(([\w.]+)\.)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*/i;
 
 //DomainManager class definition
-function DomainManager (url,form) {
-  this.url = document.getElementById(url);
-  this.form = document.getElementById(form);
-  this.init();
+function DomainManager (userUrl,formElement) {
+  this.userUrl = document.getElementById(userUrl);
+  this.formElement = document.getElementById(formElement);
 }
 
 //Class initializer
 DomainManager.prototype.init = function () {
-  this.bindEvent();
+  this.bindEvents();
 };
 
 //bindEvent of class to call event listeners
-DomainManager.prototype.bindEvent = function () {
+DomainManager.prototype.bindEvents = function () {
   var _this = this;
 
-  this.form.addEventListener('submit', function(event){
+  this.formElement.addEventListener('submit', function(event) {
     _this.checkUrlValidity(event);
   });
 };
 
 //Method to check url validity
-DomainManager.prototype.checkUrlValidity = function(evt) {
-  var getDomainSubDomain = constantRegex.regexUrl.test(this.url.value);
-  if(!getDomainSubDomain) {
+DomainManager.prototype.checkUrlValidity = function(event) {
+  var matchResult = RegexUrl.test(this.userUrl.value);
+  if(!matchResult) {
     alert("Wrong Url Entered! Please Enter a new url");
-    evt.preventDefault();
+    event.preventDefault();
   } else {
-    this.findDomainSubDomain();
+    this.showDomainSubDomain();
   }
 };
 
 //To print subdomain and domain
-DomainManager.prototype.findDomainSubDomain = function () {
-  if(RegExp.$2) {
-    alert('Subdomain: ' + RegExp.$3 + '\nDomain: ' + RegExp.$4);
+DomainManager.prototype.showDomainSubDomain = function () {
+  var subDomain = RegExp.$4;
+  var domain = RegExp.$5;
+  if(subDomain) {
+    alert('Subdomain: ' + subDomain + '\nDomain: ' + domain);
   } else {
-    alert('Domain: ' + RegExp.$4);
+    alert('Domain: ' + domain);
   }
 };
 
 //Onload method to declare DomainManager class object
 window.onload = function() {
   var domainManager = new DomainManager('url','myform');
+  domainManager.init();
 };
