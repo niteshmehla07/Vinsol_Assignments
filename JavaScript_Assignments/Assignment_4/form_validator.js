@@ -1,5 +1,3 @@
-//Constant Regexp
-
 //FormValidator class definition
 function FormValidator(form) {
   this.form = document.getElementsByClassName(form)[0];
