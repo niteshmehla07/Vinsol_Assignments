@@ -5,14 +5,13 @@ var constantRegex = {
 }
 
 //FormValidator class definition
-function FormValidator(loginId, emailId, name, homePage, aboutme, checkNotification, form) {
-  this.loginId = document.getElementById(loginId);
-  this.emailId = document.getElementById(emailId);
-  this.name = document.getElementById(name);
-  this.homePage = document.getElementById(homePage);
-  this.aboutMe = document.getElementById(aboutme);
-  this.checkNotification = document.getElementById(checkNotification);
-  this.form = document.getElementById(form);
+function FormValidator(form) {
+  this.form = document.getElementsByClassName(form)[0];
+  this.requiredValidation = this.form.querySelectorAll('[data-required = true]');
+  this.lengthValidation = this.form.querySelectorAll('[data-length]');
+  this.emailValidation = this.form.querySelectorAll("[data-email = valid]");
+  this.urlValidation = this.form.querySelectorAll("[data-url = valid]");
+  this.notificationCheck = this.form.querySelectorAll("[data-notification = true]");
   this.flag = 0;
   this.init();
 }
@@ -26,10 +25,11 @@ FormValidator.prototype.init = function () {
 FormValidator.prototype.bindEvent = function (event) {
   var _this = this;
   this.form.addEventListener('submit', function() {
+    this.flag = 0;
     _this.validateEmptyField();
     _this.validateEmailId();
     _this.validateUrl();
-    _this.validateAboutMeField();
+    _this.validateLength();
     _this.checkNotificationField();
 
     if(this.flag == 1) {
@@ -40,11 +40,9 @@ FormValidator.prototype.bindEvent = function (event) {
 
 //Method to check validity of Empty fields
 FormValidator.prototype.validateEmptyField = function() {
-  var formField = [this.loginId, this.emailId, this.name, this.homePage, this.aboutMe];
-
-  for(var i=0; i<formField.length; i++) {
-    if(formField[i].value == "") {
-      alert(formField[i].id + " can't be empty");
+  for(var i=0; i<this.requiredValidation.length; i++) {
+    if(this.requiredValidation[i].value == "") {
+      alert(this.requiredValidation[i].id + " can't be empty");
       this.flag = 1;
     }
   }
@@ -52,37 +50,45 @@ FormValidator.prototype.validateEmptyField = function() {
 
 //Method to check email validity using regexp
 FormValidator.prototype.validateEmailId = function () {
-  if(!constantRegex.regexMail.test(this.emailId.value)) {
-    alert("Enter valid email ID");
-    this.flag = 1;
+  for(var i=0; i<this.emailValidation.length; i++) {
+    if(!constantRegex.regexMail.test(this.emailValidation[i].value)) {
+      alert("Enter valid email ID");
+      this.flag = 1;
+    }
   }
 };
 
 //Method to check url validity using regexp
 FormValidator.prototype.validateUrl = function () {
-  if(!constantRegex.regexUrl.test(this.homePage.value)) {
-    alert("Enter valid URL");
-    this.flag = 1;
+  for(var i=0; i<this.urlValidation.length; i++) {
+    if(!constantRegex.regexUrl.test(this.urlValidation[i].value)) {
+      alert("Invalid URL");
+      this.flag = 1;
+    }
   }
 };
 
 //Method to check length of aboutMe field
-FormValidator.prototype.validateAboutMeField = function () {
-  if(this.aboutMe.value.length < 50) {
-    alert("Your introduction should be minimum of 50 characters");
-    this.flag = 1;
+FormValidator.prototype.validateLength = function () {
+  for(var i=0; i<this.lengthValidation.length; i++) {
+    if(this.lengthValidation[i].value.length < this.lengthValidation[i].dataset.length) {
+      alert("Your introduction should be minimum of 50 characters");
+      this.flag = 1;
+    }
   }
 };
 
 //Method to check whether notification is checked or not
 FormValidator.prototype.checkNotificationField = function () {
-  if(this.checkNotification.checked == false) {
-    alert("Please check Receive notification");
-    this.flag = 1;
+  for(var i=0; i<this.notificationCheck.length; i++) {
+    if(this.notificationCheck[i].checked == false) {
+      alert("Please check Receive notification");
+      this.flag = 1;
+    }
   }
 };
 
 //Declaration of FormValidator class object
 window.onload = function() {
-  var formValidator = new FormValidator('Login Id','email Id','Name','Home page','aboutme','notification','myform');
+  var formValidator = new FormValidator('myform');
 };

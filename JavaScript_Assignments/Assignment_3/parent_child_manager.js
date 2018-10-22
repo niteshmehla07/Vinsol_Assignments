@@ -22,9 +22,9 @@ ParentChildManager.prototype.bindEvents = function () {
 ParentChildManager.prototype.checkAllChild = function(parentBlock) {
 
   var parentBlockID = parentBlock.getAttribute("id"),
-      childSelected = document.getElementsByName(parentBlock.getAttribute("id") + "Child"),
-      childDisplayDiv = document.getElementById(parentBlock.getAttribute("id") + "Child"),
-      childDisplayClass = document.getElementById(parentBlock.getAttribute("id") + "Checkbox"),
+      childSelected = document.getElementsByName(parentBlockID + "Child"),
+      childDisplayDiv = document.getElementById(parentBlockID + "Child"),
+      childDisplayClass = document.getElementById(parentBlockID + "Checkbox"),
       _this = this;
 
   if(parentBlock.checked == true) {
@@ -43,7 +43,6 @@ ParentChildManager.prototype.checkAllChild = function(parentBlock) {
       _this.childChange(this, childSelected, childDisplayDiv, parentBlock);
     })
   }
-
 }
 
 //childChange method to perform action on child click
