@@ -1,8 +1,4 @@
 //Constant Regexp
-var constantRegex = {
-  regexUrl : /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i,
-  regexMail : /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i
-}
 
 //FormValidator class definition
 function FormValidator(form) {
@@ -13,6 +9,8 @@ function FormValidator(form) {
   this.urlValidation = this.form.querySelectorAll("[data-url = valid]");
   this.notificationCheck = this.form.querySelectorAll("[data-notification = true]");
   this.flag = 0;
+  this.regexUrl : /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i;
+  this.regexMail : /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
   this.init();
 }
 
@@ -51,7 +49,7 @@ FormValidator.prototype.validateEmptyField = function() {
 //Method to check email validity using regexp
 FormValidator.prototype.validateEmailId = function () {
   for(var i=0; i<this.emailValidation.length; i++) {
-    if(!constantRegex.regexMail.test(this.emailValidation[i].value)) {
+    if(!this.regexMail.test(this.emailValidation[i].value)) {
       alert("Enter valid email ID");
       this.flag = 1;
     }
@@ -61,7 +59,7 @@ FormValidator.prototype.validateEmailId = function () {
 //Method to check url validity using regexp
 FormValidator.prototype.validateUrl = function () {
   for(var i=0; i<this.urlValidation.length; i++) {
-    if(!constantRegex.regexUrl.test(this.urlValidation[i].value)) {
+    if(!this.regexUrl.test(this.urlValidation[i].value)) {
       alert("Invalid URL");
       this.flag = 1;
     }
@@ -72,7 +70,7 @@ FormValidator.prototype.validateUrl = function () {
 FormValidator.prototype.validateLength = function () {
   for(var i=0; i<this.lengthValidation.length; i++) {
     if(this.lengthValidation[i].value.length < this.lengthValidation[i].dataset.length) {
-      alert("Your introduction should be minimum of 50 characters");
+      alert("Your introduction should be minimum of "+ this.lengthValidation[i].dataset.length +" characters");
       this.flag = 1;
     }
   }

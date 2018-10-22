@@ -64,8 +64,17 @@ WeekdayManager.prototype.uncheckWeekday = function (evt) {
 };
 
 WeekdayManager.prototype.showWeekdays = function () {
-  alert("Only 3 days can be selected. You have already selected " + this.selectedDays[0] + ", " +
-  this.selectedDays[1] + " and " + this.selectedDays[2]);
+
+  var displayString = "";
+  for(var i=0; i<this.selectedDays.length; i++) {
+    displayString += this.selectedDays[i];
+    if(i == this.selectedDays.length-3) {
+      displayString += ", ";
+    } else if(i == this.selectedDays.length-2){
+      displayString += " and ";
+    }
+  }
+  alert("Only " + this.minimumLength[0].dataset.length + " days can be selected. You have already selected " + displayString);
 };
 
 //WeekdayManager class object
