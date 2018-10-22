@@ -9,10 +9,11 @@ function FormValidator(form) {
   this.urlValidation = this.form.querySelectorAll("[data-url = valid]");
   this.notificationCheck = this.form.querySelectorAll("[data-notification = true]");
   this.flag = 0;
-  this.regexUrl : /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i;
-  this.regexMail : /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
   this.init();
 }
+
+FormValidator.prototype.regexMail = /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i;
+FormValidator.prototype.regexUrl = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
 
 //FormValidator class initializer
 FormValidator.prototype.init = function () {
