@@ -1,6 +1,7 @@
 //ParentChildManager class
 function ParentChildManager (parent) {
   this.parentSelected = document.getElementsByName(parent);
+  this.childSelected = document.querySelectorAll('[data-child]')
   this.init();
 }
 
@@ -16,15 +17,20 @@ ParentChildManager.prototype.bindEvents = function () {
       _this.checkAllChild(this);
     })
   }
+  for(var i=0; i<this.childSelected.length; i++) {
+    this.childSelected[i].addEventListener('click', function() {
+      _this.getChildsParentDetail(this);
+    })
+  }
 };
 
 //checkAllChild method to check all childs of parent checkbox and perform click event if child is clicked
 ParentChildManager.prototype.checkAllChild = function(parentBlock) {
 
   var parentBlockID = parentBlock.getAttribute("id"),
-      childSelected = document.getElementsByName(parentBlockID + "Child"),
-      childDisplayDiv = document.getElementById(parentBlockID + "Child"),
-      childDisplayClass = document.getElementById(parentBlockID + "Checkbox"),
+      childSelected = document.getElementsByName(parentBlock.getAttribute("id") + "Child"),
+      childDisplayDiv = document.getElementById(parentBlock.getAttribute("id") + "Child"),
+      childDisplayClass = document.getElementById(parentBlock.getAttribute("id") + "Checkbox"),
       _this = this;
 
   if(parentBlock.checked == true) {
@@ -38,12 +44,20 @@ ParentChildManager.prototype.checkAllChild = function(parentBlock) {
     childSelected[i].checked = parentBlock.checked;
   }
 
-  for(var i=0; i<childSelected.length; i++) {
+  /*for(var i=0; i<childSelected.length; i++) {
     childSelected[i].addEventListener('click', function() {
       _this.childChange(this, childSelected, childDisplayDiv, parentBlock);
     })
-  }
+  }*/
 }
+
+ParentChildManager.prototype.getChildsParentDetail = function (childBlock) {
+  var parentNodeOfSelectedChild = childBlock.parentNode.parentNode.childNodes[1];
+      childSelected = document.getElementsByName(parentNodeOfSelectedChild.getAttribute("id") + "Child"),
+      childDisplayDiv = document.getElementById(parentNodeOfSelectedChild.getAttribute("id") + "Child");
+
+  this.childChange(childBlock, childSelected, childDisplayDiv, parentNodeOfSelectedChild);
+};
 
 //childChange method to perform action on child click
 ParentChildManager.prototype.childChange = function(childBlock, childSelected, childDisplayDiv, parentBlock) {

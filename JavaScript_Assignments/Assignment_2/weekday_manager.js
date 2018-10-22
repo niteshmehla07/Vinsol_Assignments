@@ -4,7 +4,7 @@ function WeekdayManager(daysCheck, noneCheck) {
   this.daysCount = 0;
   this.daysCheck = document.getElementsByName(daysCheck);
   this.noneCheck = document.getElementById(noneCheck);
-  this.minimumLength = 3;
+  this.minimumLength = document.querySelectorAll('[data-length]');
   this.init();
 }
 
@@ -50,7 +50,7 @@ WeekdayManager.prototype.checkWeekday = function (evt) {
   this.noneCheck.checked = false;
   this.selectedDays.push(evt.value);
   var length = this.selectedDays.length;
-  if(length > this.minimumLength) {
+  if(length > this.minimumLength[0].dataset.length) {
     evt.checked = false;
     this.selectedDays.pop();
     this.showWeekdays();
