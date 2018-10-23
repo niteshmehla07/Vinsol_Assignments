@@ -1,13 +1,12 @@
 //FormValidator class definition
-function FormValidator(form) {
-  this.form = document.getElementsByClassName(form)[0];
-  this.requiredValidation = this.form.querySelectorAll('[data-required = true]');
-  this.lengthValidation = this.form.querySelectorAll('[data-length]');
-  this.emailValidation = this.form.querySelectorAll("[data-email = valid]");
-  this.urlValidation = this.form.querySelectorAll("[data-url = valid]");
-  this.notificationCheck = this.form.querySelectorAll("[data-notification = true]");
+function FormValidator(formObj) {
+  this.form = formObj.form;
+  this.requiredValidation = formObj.requiredValidation;
+  this.lengthValidation = formObj.lengthValidation;
+  this.emailValidation = formObj.emailValidation;
+  this.urlValidation = formObj.urlValidation;
+  this.notificationCheck = formObj.notificationCheck;
   this.flag = 0;
-  this.init();
 }
 
 FormValidator.prototype.regexMail = /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i;
@@ -87,5 +86,20 @@ FormValidator.prototype.checkNotificationField = function () {
 
 //Declaration of FormValidator class object
 window.onload = function() {
-  var formValidator = new FormValidator('myform');
+  var form = document.querySelectorAll(".myform")[0],
+      requiredValidation = document.querySelectorAll('[data-required = true]'),
+      lengthValidation = document.querySelectorAll('[data-length]'),
+      emailValidation = document.querySelectorAll("[data-email = valid]"),
+      urlValidation = document.querySelectorAll("[data-url = valid]"),
+      notificationCheck = document.querySelectorAll("[data-notification = true]"),
+      formObj = {
+        "form" : form,
+        "requiredValidation" : requiredValidation,
+        "lengthValidation" : lengthValidation,
+        "emailValidation" : emailValidation,
+        "urlValidation" : urlValidation,
+        "notificationCheck" : notificationCheck
+      },
+      formValidator = new FormValidator(formObj);
+      formValidator.init();
 };

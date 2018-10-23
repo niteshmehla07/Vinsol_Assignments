@@ -1,12 +1,9 @@
 //Constant Regexp
-var constant = {
-  RegexUrl : /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i
-}
+const regexUrl = /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,4})([\/][\w%.-]+)*(\/)?([#][\w9%-]+)?([\?][\w%.]+\=[\w%]+)?(&[\w%.]+\=[\w%.]*)*$/i;
 
 //UrlManager class
 function UrlManager() {
-  this.url = null;
-  this.init();
+  this.url;
 }
 
 //Init method of class to perform required operation
@@ -26,7 +23,7 @@ UrlManager.prototype.getUrl = function () {
 
 //To validate Url using regexp
 UrlManager.prototype.validateUrl = function () {
-  if(!constant.RegexUrl.test(this.url)) {
+  if(!regexUrl.test(this.url)) {
     alert("Enter valid URL");
     this.getUrl();
   } else {
@@ -42,4 +39,5 @@ UrlManager.prototype.openUrlWindow = function () {
 //UrlManager class object
 window.onload = function() {
   var urlManager = new UrlManager();
+  urlManager.init();
 }
