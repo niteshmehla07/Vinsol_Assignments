@@ -1,48 +1,44 @@
 //CountrySwiching class definition
-function CountrySwiching(countryOne, countryTwo, addButton, removeButton) {
-  this.countryOne = document.getElementById(countryOne);
-  this.countryTwo = document.getElementById(countryTwo);
-  this.addButton = document.getElementById(addButton);
-  this.removeButton = document.getElementById(removeButton);
-  this.init();
+function CountryManager(countryManagerObj) {
+  this.countryFromSelector = countryManagerObj.countryFromSelector;
+  this.countryToSelector = countryManagerObj.countryToSelector;
+  this.addButton = countryManagerObj.addButton;
+  this.removeButton = countryManagerObj.removeButton;
 }
 
 //CountrySwiching initializer method
-CountrySwiching.prototype.init = function () {
+CountryManager.prototype.init = function () {
   this.bindEvent();
 };
 
 //CountrySwiching bindEvent method to call DOM events
-CountrySwiching.prototype.bindEvent = function () {
+CountryManager.prototype.bindEvent = function () {
   var _this = this;
 
   this.addButton.addEventListener('click', function() {
-    _this.addCountry()
+    _this.moveCountry(_this.countryFromSelector, _this.countryToSelector);
   });
 
   this.removeButton.addEventListener('click', function() {
-    _this.removeCountry()
+    _this.moveCountry(_this.countryToSelector, _this.countryFromSelector);
   });
-
 };
 
-//addCountry method to move country from left select box to right
-CountrySwiching.prototype.addCountry = function () {
-  var selectedCountry = this.countryOne.options[this.countryOne.selectedIndex];
-  this.countryOne.remove(selectedCountry.index);
+CountryManager.prototype.moveCountry = function (fromSelector, toSelector) {
+  var selectedCountry = fromSelector.options[fromSelector.selectedIndex];
+  fromSelector.remove(selectedCountry.index);
   var newCountryAdd = new Option(selectedCountry.text,selectedCountry.value);
-  this.countryTwo.add(newCountryAdd,null);
-};
-
-//addCountry method to move country from right select box to left
-CountrySwiching.prototype.removeCountry = function () {
-  var selectedCountry = this.countryTwo.options[this.countryTwo.selectedIndex];
-  this.countryTwo.remove(selectedCountry.index);
-  var newCountryAdd = new Option(selectedCountry.text,selectedCountry.value);
-  this.countryOne.add(newCountryAdd,null);
+  toSelector.add(newCountryAdd,null);
 };
 
 //CountrySwiching class object declaration
 window.onload = function() {
-  var countrySwiching = new CountrySwiching('countryOneBox','countryTwoBox','add','remove');
+  var countryManagerObj = {
+    countryFromSelector : document.querySelector('[data-country=from]'),
+    countryToSelector : document.querySelector('[data-country=to]'),
+    addButton : document.querySelector('[data-button=add]'),
+    removeButton : document.querySelector('[data-button=remove]')
+  };
+  var countryManager = new CountryManager(countryManagerObj);
+  countryManager.init();
 }

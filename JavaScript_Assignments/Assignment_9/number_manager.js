@@ -1,9 +1,8 @@
 //NumberManager class definition
-function NumberManager (form,numberField,resultField) {
-  this.form = document.getElementById(form);
-  this.numberField = document.getElementById(numberField);
-  this.resultField = document.getElementById(resultField);
-  this.init();
+function NumberManager (numberObj) {
+  this.form = numberObj.form;
+  this.numberField = numberObj.numberField;
+  this.resultField = numberObj.resultField;
 }
 
 //NumberManager class initializer
@@ -34,7 +33,10 @@ NumberManager.prototype.setResultField = function () {
 
 //submitForm method to check form validation and to perform submit event
 NumberManager.prototype.submitForm = function (evt) {
-  if(isNaN(this.numberField.value) || this.numberField.value.trim() == "") {
+  this.setResultField();
+  if(this.resultField.value == "true") {
+    console.log("Form submit successful");
+  } else {
     alert("Form will submit on numeric value only");
     evt.preventDefault();
   }
@@ -42,5 +44,12 @@ NumberManager.prototype.submitForm = function (evt) {
 
 //numberManager class object declaration
 window.onload = function() {
-  var numberManager = new NumberManager('myform','numberField','result');
+  var numberObject = {
+          form : document.querySelector('[data-form]'),
+          numberField : document.querySelector('[data-input = true]'),
+          resultField : document.querySelector('[data-result = true]')
+        },
+      numberManager = new NumberManager(numberObject);
+
+      numberManager.init();
 }
