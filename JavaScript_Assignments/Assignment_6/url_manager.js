@@ -3,7 +3,6 @@ const regexUrl = /(http[s]?\:\/\/)?([w]{3}.)?((([\w]+)?\.)*)?([a-z.]+\.[a-z.]{2,
 
 //UrlManager class
 function UrlManager() {
-  this.url;
 }
 
 //Init method of class to perform required operation

@@ -87,18 +87,13 @@ FormValidator.prototype.checkNotificationField = function () {
 //Declaration of FormValidator class object
 window.onload = function() {
   var form = document.querySelectorAll(".myform")[0],
-      requiredValidation = document.querySelectorAll('[data-required = true]'),
-      lengthValidation = document.querySelectorAll('[data-length]'),
-      emailValidation = document.querySelectorAll("[data-email = valid]"),
-      urlValidation = document.querySelectorAll("[data-url = valid]"),
-      notificationCheck = document.querySelectorAll("[data-notification = true]"),
       formObj = {
-        "form" : form,
-        "requiredValidation" : requiredValidation,
-        "lengthValidation" : lengthValidation,
-        "emailValidation" : emailValidation,
-        "urlValidation" : urlValidation,
-        "notificationCheck" : notificationCheck
+        form : form,
+        requiredValidation : form.querySelectorAll('[data-required = true]'),
+        lengthValidation : form.querySelectorAll('[data-length]'),
+        emailValidation : form.querySelectorAll("[data-email = valid]"),
+        urlValidation : form.querySelectorAll("[data-url = valid]"),
+        notificationCheck : form.querySelectorAll("[data-notification = true]")
       },
       formValidator = new FormValidator(formObj);
       formValidator.init();
