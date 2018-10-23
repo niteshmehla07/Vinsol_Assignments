@@ -1,24 +1,35 @@
 //ParentChildManager class
 function ParentChildManager (parent) {
   this.parentSelected = document.getElementsByName(parent);
-  this.childSelected = document.querySelectorAll('[data-child]')
-  this.init();
+  this.childSelectedDataChild = document.querySelectorAll('[data-child]');
+  this.parentBlockID;
+  this.childSelected;
+  this.childDisplayDiv;
+  this.childDisplayClass;
 }
 
 ParentChildManager.prototype.init = function () {
   this.bindEvents();
 };
 
+ParentChildManager.prototype.parentChildDetails = function (parentBlock) {
+  this.parentBlockID = parentBlock.getAttribute("id"),
+  this.childSelected = document.querySelectorAll('[data-parent-id='+ this.parentBlockID +']'),
+  this.childDisplayDiv = document.querySelector('[data-parent-div='+ this.parentBlockID +']'),
+  this.childDisplayClass = document.getElementById(parentBlock.getAttribute("id") + "Checkbox");
+};
+
 //bindEvents method to call click event when user click on parent checkbox
 ParentChildManager.prototype.bindEvents = function () {
   var _this = this;
+
   for(var i=0; i<this.parentSelected.length; i++) {
     this.parentSelected[i].addEventListener('click', function() {
       _this.checkAllChild(this);
     })
   }
-  for(var i=0; i<this.childSelected.length; i++) {
-    this.childSelected[i].addEventListener('click', function() {
+  for(var i=0; i<this.childSelectedDataChild.length; i++) {
+    this.childSelectedDataChild[i].addEventListener('click', function() {
       _this.getChildsParentDetail(this);
     })
   }
@@ -27,36 +38,27 @@ ParentChildManager.prototype.bindEvents = function () {
 //checkAllChild method to check all childs of parent checkbox and perform click event if child is clicked
 ParentChildManager.prototype.checkAllChild = function(parentBlock) {
 
-  var parentBlockID = parentBlock.getAttribute("id"),
-      childSelected = document.getElementsByName(parentBlock.getAttribute("id") + "Child"),
-      childDisplayDiv = document.getElementById(parentBlock.getAttribute("id") + "Child"),
-      childDisplayClass = document.getElementById(parentBlock.getAttribute("id") + "Checkbox"),
-      _this = this;
+  var _this = this;
+  this.parentChildDetails(parentBlock);
 
   if(parentBlock.checked == true) {
-    childDisplayDiv.style.display = "block";
-    childDisplayClass.scrollIntoView();
+    this.childDisplayDiv.style.display = "block";
+    this.childDisplayClass.scrollIntoView();
   } else {
-    childDisplayDiv.style.display = "none";
+    this.childDisplayDiv.style.display = "none";
   }
 
-  for(var i=0; i<childSelected.length; i++) {
-    childSelected[i].checked = parentBlock.checked;
+  for(var i=0; i<this.childSelected.length; i++) {
+    this.childSelected[i].checked = parentBlock.checked;
   }
-
-  /*for(var i=0; i<childSelected.length; i++) {
-    childSelected[i].addEventListener('click', function() {
-      _this.childChange(this, childSelected, childDisplayDiv, parentBlock);
-    })
-  }*/
 }
 
 ParentChildManager.prototype.getChildsParentDetail = function (childBlock) {
   var parentNodeOfSelectedChild = childBlock.parentNode.parentNode.childNodes[1];
-      childSelected = document.getElementsByName(parentNodeOfSelectedChild.getAttribute("id") + "Child"),
-      childDisplayDiv = document.getElementById(parentNodeOfSelectedChild.getAttribute("id") + "Child");
 
-  this.childChange(childBlock, childSelected, childDisplayDiv, parentNodeOfSelectedChild);
+  this.parentChildDetails(parentNodeOfSelectedChild);
+
+  this.childChange(childBlock, this.childSelected, this.childDisplayDiv, parentNodeOfSelectedChild);
 };
 
 //childChange method to perform action on child click
@@ -78,4 +80,5 @@ ParentChildManager.prototype.childChange = function(childBlock, childSelected, c
 
 window.onload = function() {
   var parentChildManager = new ParentChildManager("parent");
+  parentChildManager.init();
 }

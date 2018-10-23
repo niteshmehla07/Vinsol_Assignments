@@ -14,40 +14,40 @@
     <div class="colorCheckbox" id="colorCheckbox">
 
       <input type="checkbox" name="parent" value="Color" id="color">Color<br>
-      <div class="colorCheckboxChild" id="colorChild">
-        <input type="checkbox" name="colorChild" data-child="child" value="blue">Blue<br>
-        <input type="checkbox" name="colorChild" data-child="child" value="green">Green<br>
-        <input type="checkbox" name="colorChild" data-child="child" value="red">Red<br>
-        <input type="checkbox" name="colorChild" data-child="child" value="yellow">Yellow<br>
+      <div class="colorCheckboxChild" id="colorChild" data-parent-div="color">
+        <input type="checkbox" name="colorChild" data-child="child" class="colorChild" value="blue" data-parent-id="color">Blue<br>
+        <input type="checkbox" name="colorChild" data-child="child" class="colorChild" value="green" data-parent-id="color">Green<br>
+        <input type="checkbox" name="colorChild" data-child="child" class="colorChild" value="red" data-parent-id="color">Red<br>
+        <input type="checkbox" name="colorChild" data-child="child" class="colorChild" value="yellow" data-parent-id="color">Yellow<br>
       </div>
 
     </div>
     <div class="movieCheckbox" id="movieCheckbox">
 
       <input type="checkbox" name="parent" value="Movie" id="movie">Movie<br>
-      <div class="movieCheckboxChild" id="movieChild">
-        <input type="checkbox" name="movieChild" data-child="child" value="dar">Dar<br>
-        <input type="checkbox" name="movieChild" data-child="child" value="sir">Sir<br>
+      <div class="movieCheckboxChild" id="movieChild" data-parent-div="movie">
+        <input type="checkbox" name="movieChild" data-child="child" value="dar" data-parent-id="movie">Dar<br>
+        <input type="checkbox" name="movieChild" data-child="child" value="sir" data-parent-id="movie">Sir<br>
       </div>
 
     </div>
     <div class="drinkCheckbox" id="drinkCheckbox">
 
       <input type="checkbox" name="parent" value="Drinks" id="drink">Drinks<br>
-      <div class="drinkCheckboxChild" id="drinkChild">
-        <input type="checkbox" name="drinkChild" data-child="child" value="coke">Coke<br>
-        <input type="checkbox" name="drinkChild" data-child="child" value="Pepsi">Pepsi<br>
-        <input type="checkbox" name="drinkChild" data-child="child" value="Dew">Dew<br>
+      <div class="drinkCheckboxChild" id="drinkChild" data-parent-div="drink">
+        <input type="checkbox" name="drinkChild" data-child="child" value="coke" data-parent-id="drink">Coke<br>
+        <input type="checkbox" name="drinkChild" data-child="child" value="Pepsi" data-parent-id="drink">Pepsi<br>
+        <input type="checkbox" name="drinkChild" data-child="child" value="Dew" data-parent-id="drink">Dew<br>
       </div>
 
     </div>
     <div class="bikesCheckbox" id="bikesCheckbox">
 
       <input type="checkbox" name="parent" value="Bikes" id="bikes">Bikes<br>
-      <div class="bikesCheckboxChild" id="bikesChild">
-        <input type="checkbox" name="bikesChild" data-child="child" value="vrod">V-rod<br>
-        <input type="checkbox" name="bikesChild" data-child="child" value="pulsar">Pulsar<br>
-        <input type="checkbox" name="bikesChild" data-child="child" value="cbz">cbz<br>
+      <div class="bikesCheckboxChild" id="bikesChild" data-parent-div="bikes">
+        <input type="checkbox" name="bikesChild" data-child="child" value="vrod" data-parent-id="bikes">V-rod<br>
+        <input type="checkbox" name="bikesChild" data-child="child" value="pulsar" data-parent-id="bikes">Pulsar<br>
+        <input type="checkbox" name="bikesChild" data-child="child" value="cbz" data-parent-id="bikes">cbz<br>
       </div>
 
     </div>
