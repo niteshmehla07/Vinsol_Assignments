@@ -26,9 +26,17 @@ CountryManager.prototype.bindEvent = function () {
 
 CountryManager.prototype.moveCountry = function (fromSelector, toSelector) {
   var selectedCountry = fromSelector.options[fromSelector.selectedIndex];
-  fromSelector.remove(selectedCountry.index);
-  var newCountryAdd = new Option(selectedCountry.text,selectedCountry.value);
-  toSelector.add(newCountryAdd,null);
+  var newCountryAdd = new Option(selectedCountry.text, selectedCountry.value);
+  this.removeCountry(fromSelector, selectedCountry);
+  this.addCountry(toSelector, newCountryAdd);
+};
+
+CountryManager.prototype.addCountry = function (toSelector, addCountryToSelector) {
+  toSelector.add(addCountryToSelector,null);
+};
+
+CountryManager.prototype.removeCountry = function (fromSelector, removeCountryToSelector) {
+  fromSelector.remove(removeCountryToSelector.index);
 };
 
 //CountrySwiching class object declaration
