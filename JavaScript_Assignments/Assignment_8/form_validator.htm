@@ -14,13 +14,13 @@
 
     <div class="registrationContent">
 
-    <form id="myform" method="post" action="">
+    <form class="myform" method="post" action="">
       <div class="formBody">
         <div class="fromLabels">
           <label for="Login Id">Login Id</label>
         </div>
         <div class="formInputs">
-          <input type="text" name="Login Id" id="Login Id">
+          <input type="text" name="Login Id" id="Login Id" data-required="true">
         </div>
       </div>
 
@@ -29,7 +29,7 @@
           <label for="email Id">Email</label>
         </div>
         <div class="formInputs">
-          <input type="text" name="email Id" id="email Id">
+          <input type="text" name="email Id" id="email Id" data-required="true" data-email="valid">
         </div>
       </div>
 
@@ -38,7 +38,7 @@
           <label for="Name">Name</label>
         </div>
         <div class="formInputs">
-          <input type="text" name="Name" id="Name">
+          <input type="text" name="Name" id="Name" data-required="true">
         </div>
       </div>
 
@@ -60,7 +60,7 @@
           <label for="Home page">Home Page</label>
         </div>
         <div class="formInputs">
-          <input type="text" name="Home page" id="Home page">
+          <input type="text" name="Home page" id="Home page" data-required="true" data-url="valid">
         </div>
       </div>
 
@@ -72,12 +72,12 @@
 
       <div class="formBody">
         <div class="fromLabels">
-          <textarea name="aboutme" id="aboutme" rows="10" cols="10" style="width:350px;"></textarea>
+          <textarea name="aboutme" id="aboutme" rows="10" cols="10" style="width:350px;" data-required="true" data-length="50"></textarea>
         </div>
       </div>
 
       <div class="formBody">
-          <input type="checkbox" id="notification" name="notification">
+          <input type="checkbox" id="notification" name="notification" data-notification="true">
           <span class="checkboxText">Receive notification of comments.</span><br>
       </div>
 
